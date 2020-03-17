@@ -1,6 +1,6 @@
 'use strict';
 
-const inputParser = require('../lib/input.js');
+const inputObj = require('../lib/input.js');
 
 describe('input', () => {
   it('handle objects with the proper -a flag', () => {
@@ -9,7 +9,7 @@ describe('input', () => {
     const input3 = ['-a', '!@#$%(&'];
     const inputList = [input1, input2, input3];
     inputList.forEach(arr => {
-      expect(inputParser(arr)).toEqual({
+      expect(inputObj(arr)).toEqual({
         action: 'add',
         payload: arr[1],
       });
@@ -25,9 +25,9 @@ describe('input', () => {
     const inputList = [input1, input2, input3, input4];
     inputList.forEach(arr => {
       if (arr[0] !== '-a') {
-        expect(() => inputParser(arr)).toThrowError('error: invalid flag');
+        expect(() => inputObj(arr)).toThrowError('error: invalid flag');
       } else if (!arr[1]) {
-        expect(() => inputParser(arr)).toThrowError('error: no text');
+        expect(() => inputObj(arr)).toThrowError('error: no text');
       }
     });
   });

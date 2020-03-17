@@ -8,8 +8,7 @@ describe('validator module performs basic validation of', () => {
     children: { type: 'array', valueType: 'string' },
   };
 
-  const Validator = require('../lib/validator.js');
-  const valObj = Validator(personRules);
+  const valObj = require('../lib/validator.js')(personRules);
 
   let str = 'yes';
   let num = 1;
@@ -21,12 +20,12 @@ describe('validator module performs basic validation of', () => {
   let bool = false;
 
   const varTypes = {
-    'string': str,
-    'number': num,
-    'array': arr,
-    'object': obj,
-    'function': func,
-    'boolean': bool,
+    string: str,
+    number: num,
+    array: arr,
+    object: obj,
+    function: func,
+    boolean: bool,
   };
 
   it('strings', () => {
@@ -104,8 +103,7 @@ describe('valObj module performs complex validations', () => {
     children: { type: 'array', valueType: 'string' },
   };
 
-  const Validator = require('../lib/validator.js');
-  const valObj = Validator(personRules);
+  const valObj = require('../lib/validator.js')(personRules);
 
   const susan = {
     id: '123-45-6789',

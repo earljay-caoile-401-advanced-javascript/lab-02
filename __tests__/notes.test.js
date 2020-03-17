@@ -1,20 +1,20 @@
 'use strict';
 
-const notesHandler = require('../lib/notes.js');
+const noteObj = require('../lib/notes.js');
 
 beforeEach(() => {
   jest.spyOn(global.console, 'log');
   console.log = jest.fn();
 });
 
-describe('notesHandler', () => {
+describe('note object', () => {
   it('console logs', () => {
     const inputObj = {
       action: 'add',
       payload: 'I like green eggs and ham!',
     };
 
-    notesHandler(inputObj);
+    noteObj(inputObj);
     expect(console.log).toHaveBeenCalled();
   });
 
@@ -24,7 +24,7 @@ describe('notesHandler', () => {
       payload: 'I like green eggs and ham!',
     };
 
-    notesHandler(inputObj);
+    noteObj(inputObj);
     expect(console.log).not.toHaveBeenCalled();
   });
 });
