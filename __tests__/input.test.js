@@ -20,7 +20,9 @@ describe('input', () => {
     const input1 = ['-b', 'testing 1-2-3'];
     const input2 = ['-a'];
     const input3 = ['-a', ''];
-    const inputList = [input1, input2, input3];
+    const input4 = ['-a', 1234];
+
+    const inputList = [input1, input2, input3, input4];
     inputList.forEach(arr => {
       if (arr[0] !== '-a') {
         expect(() => inputParser(arr)).toThrowError('error: invalid flag');
